@@ -1,6 +1,6 @@
 {
     "name": "manchenkov/yii2-maker",
-    "description": "DESC",
+    "description": "Code generation tool for Yii 2 project",
     "type": "yii2-extension",
     "license": "MIT",
     "authors": [
