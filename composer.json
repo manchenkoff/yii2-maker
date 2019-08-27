@@ -1,0 +1,21 @@
+{
+    "name": "manchenkov/yii2-maker",
+    "description": "DESC",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artem Manchenkov",
+            "email": "artyom@manchenkoff.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "manchenkov\\yii\\maker\\": "src/"
+        }
+    },
+    "require": {
+        "manchenkov/yii2-components": "^1.0",
+        "manchenkov/php-helpers": "^1.0"
+    }
+}
