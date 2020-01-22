@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace {{namespace}};
 
 use yii\base\Module as BaseModule;
@@ -15,7 +17,7 @@ class Module extends BaseModule
      *
      * @return bool
      */
-    public function beforeAction($action)
+    public function beforeAction($action): bool
     {
         $config = [
             'components' => [

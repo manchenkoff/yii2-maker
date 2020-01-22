@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace {{namespace}};
 
 use yii\base\Model;
@@ -10,7 +12,7 @@ class {{class}} extends Model
      * Form validation rules
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [];
     }
@@ -19,7 +21,7 @@ class {{class}} extends Model
      * Additional behaviors to data processing
      * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [];
     }
@@ -28,7 +30,7 @@ class {{class}} extends Model
      * Attributes translation
      * @return array
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [];
     }

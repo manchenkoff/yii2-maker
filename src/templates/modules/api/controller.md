@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\modules\api\controllers;
 
 use manchenkov\yii\http\Controller;
@@ -24,7 +26,7 @@ class MainController extends Controller
      * ];
      * ```
      */
-    protected function accessRules()
+    protected function accessRules(): array
     {
         return [];
     }
@@ -33,12 +35,12 @@ class MainController extends Controller
      * Array of actions without authentication
      * @return array
      */
-    protected function publicActions()
+    protected function publicActions(): array
     {
         return [];
     }
 
-    public function actionIndex()
+    public function actionIndex(): string
     {
         return 'API module loaded!';
     }

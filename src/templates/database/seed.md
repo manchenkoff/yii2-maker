@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace {{namespace}};
 
 use tebazil\yii2seeder\Seeder;
@@ -7,7 +9,7 @@ use yii\base\Action;
 
 class {{class}} extends Action
 {
-    public function run(Seeder $seeder)
+    public function run(Seeder $seeder): void
     {
         // get generator and faker providers
         $generator = $seeder->getGeneratorConfigurator();

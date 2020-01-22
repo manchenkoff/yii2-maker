@@ -12,7 +12,7 @@ class {{class}} extends Migration
      * @return bool|void
      * @throws \yii\base\Exception
      */
-    public function up()
+    public function up(): void
     {
         $this->createTable($this->tableName, [
             'id' => $this->primaryKey(),
@@ -35,7 +35,7 @@ class {{class}} extends Migration
     * Rollback migration
     * @return bool|void
     */
-    public function down()
+    public function down(): void
     {
         $this->dropTable($this->tableName);
     }

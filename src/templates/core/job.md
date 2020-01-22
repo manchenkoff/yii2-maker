@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace {{namespace}};
 
 use yii\base\BaseObject;
@@ -12,7 +14,7 @@ class {{class}} extends BaseObject implements JobInterface, RetryableJobInterfac
     /**
      * @param Queue $queue which pushed and is handling the job
      */
-    public function execute($queue)
+    public function execute($queue): void
     {
         // Your code
     }
@@ -20,7 +22,7 @@ class {{class}} extends BaseObject implements JobInterface, RetryableJobInterfac
     /**
      * @return int time to reserve in seconds
      */
-    public function getTtr()
+    public function getTtr(): int
     {
         // 5 minutes
         return 60 * 5;
@@ -32,7 +34,7 @@ class {{class}} extends BaseObject implements JobInterface, RetryableJobInterfac
      *
      * @return bool
      */
-    public function canRetry($attempt, $error)
+    public function canRetry($attempt, $error): bool
     {
         // Your code
         return true;

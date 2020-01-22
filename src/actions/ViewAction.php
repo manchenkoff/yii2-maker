@@ -24,7 +24,7 @@ class ViewAction extends MakeAction
 
         $this->process(
             ["name" => strtolower($view)],
-            ["core/view.md" => "../resources/{$path}.twig"]
+            ["core/view.md" => "../resources/{$path}.php"]
         );
     }
 }

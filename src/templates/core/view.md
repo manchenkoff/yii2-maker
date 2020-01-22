@@ -1,5 +1,13 @@
-{% extends '@layouts/main.twig' %}
+<?php
 
-{% block content %}
+use yii\web\View;
+
+/**
+ * @var View $this
+ */
+
+?>
+
+<div>
     <h1>{{name}}</h1>
-{% endblock %}
+</div>
