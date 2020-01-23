@@ -1,10 +1,10 @@
 <?php
 
-use manchenkov\yii\http\routing\Router;
+use manchenkov\yii\http\routing\Route;
 
-return Router::group('{{module}}')->routes([
+return Route::group('{{module}}')->routes([
 
-    Router::get('/', 'main/index'),
+    Route::get('/', 'main/index'),
     // module routes config should be here ...
 
 ]);
