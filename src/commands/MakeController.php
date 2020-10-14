@@ -1,9 +1,4 @@
 <?php
-/**
- * Created by Artyom Manchenkov
- * artyom@manchenkoff.me
- * manchenkoff.me © 2019
- */
 
 namespace manchenkov\yii\maker\commands;
 
@@ -36,25 +31,25 @@ class MakeController extends Command
      * Directory to write files
      * @var string
      */
-    public $baseDir;
+    public string $baseDir;
 
     /**
      * Directory with templates files
      * @var string
      */
-    public $templatesDir;
+    public string $templatesDir;
 
     /**
      * Key-value pairs to replace with content
      * @var array
      */
-    public $replacement = [];
+    public array $replacement = [];
 
     /**
      * 'Original => destination' pairs to write files
      * @var array
      */
-    public $filesMap = [];
+    public array $filesMap = [];
 
     /**
      * Basic configuration of controller
@@ -80,7 +75,7 @@ class MakeController extends Command
      * @throws InvalidRouteException
      * @throws \yii\console\Exception
      */
-    public function runAction($id, $params = [])
+    public function runAction($id, $params = []): int
     {
         return parent::runAction($id, $params);
     }
@@ -120,7 +115,7 @@ class MakeController extends Command
      * MakeController actions for scaffolding
      * @return array
      */
-    public function actions()
+    public function actions(): array
     {
         return [
             // Controllers
@@ -142,7 +137,6 @@ class MakeController extends Command
             'filter' => FilterAction::class,
             'form' => FormAction::class,
             'job' => JobAction::class,
-            'mail' => MailAction::class,
             'view' => ViewAction::class,
 
             // Modules

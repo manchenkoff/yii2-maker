@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by Artyom Manchenkov
- * artyom@manchenkoff.me
- * manchenkoff.me © 2019
- */
 
 namespace manchenkov\yii\maker\actions;
 
 use manchenkov\yii\maker\commands\MakeAction;
+use yii\console\ExitCode;
 use yii\helpers\StringHelper;
 
 class CommandAction extends MakeAction
@@ -17,14 +13,16 @@ class CommandAction extends MakeAction
      *
      * @param string $name
      *
-     * @return int|void
+     * @return int
      */
-    public function run(string $name)
+    public function run(string $name): int
     {
         // base namespace
         $namespace = "app\\commands";
+
         // get class base name from full path
         $class = stringy(StringHelper::basename($name))->upperCamelize();
+
         // build file path in lower case and append class base name
         $filename = stringy($name)
             ->replace($class, false)
@@ -33,7 +31,9 @@ class CommandAction extends MakeAction
 
         // check controller name suffix
         if (!$class->endsWith("Controller")) {
-            return $this->error("The file name must contain 'Controller' suffix");
+            $this->error("The file name must contain 'Controller' suffix");
+
+            return ExitCode::UNSPECIFIED_ERROR;
         }
 
         // append namespace parts if exists

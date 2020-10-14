@@ -15,7 +15,8 @@
         }
     },
     "require": {
-        "manchenkov/yii2-components": "^1.0",
-        "manchenkov/php-helpers": "^1.0"
+        "php": "^7.4",
+        "manchenkov/yii2-components": "^2.0.1",
+        "manchenkov/php-helpers": "^1.0.9"
     }
 }

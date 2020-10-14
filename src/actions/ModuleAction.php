@@ -1,9 +1,4 @@
 <?php
-/**
- * Created by Artyom Manchenkov
- * artyom@manchenkoff.me
- * manchenkoff.me © 2019
- */
 
 namespace manchenkov\yii\maker\actions;
 
@@ -17,9 +12,9 @@ class ModuleAction extends MakeAction
      *
      * @param string $name
      *
-     * @return int|void
+     * @return int
      */
-    public function run(string $name)
+    public function run(string $name): int
     {
         // base namespace
         $namespace = "app\\modules\\";

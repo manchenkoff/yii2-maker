@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by Artyom Manchenkov
- * artyom@manchenkoff.me
- * manchenkoff.me © 2019
- */
 
 namespace manchenkov\yii\maker\commands;
 
 use Exception;
+use manchenkov\yii\console\Command;
 use yii\base\Action;
 use yii\base\InvalidConfigException;
 use yii\console\ExitCode;
@@ -20,7 +16,7 @@ abstract class MakeAction extends Action
 {
     /**
      * Parent controller
-     * @var MakeController
+     * @var MakeController|Command
      */
     public $controller;
 
@@ -44,8 +40,6 @@ abstract class MakeAction extends Action
     public function error(string $message)
     {
         $this->controller->error($message);
-
-        return;
     }
 
     /**
@@ -56,8 +50,6 @@ abstract class MakeAction extends Action
     public function info(string $message)
     {
         $this->controller->info($message);
-
-        return;
     }
 
     /**
@@ -66,19 +58,19 @@ abstract class MakeAction extends Action
      * @param array $replacement
      * @param array $filesMap
      *
-     * @return int|void
+     * @return int
      */
-    public function process(array $replacement, array $filesMap)
+    public function process(array $replacement, array $filesMap): int
     {
         $this->controller->replacement = $replacement;
         $this->controller->filesMap = $filesMap;
 
         try {
-            return $this->controller->process();
+            $this->controller->process();
         } catch (Exception $exception) {
             $this->controller->error($exception->getMessage());
-
-            return ExitCode::OK;
         }
+
+        return ExitCode::OK;
     }
 }

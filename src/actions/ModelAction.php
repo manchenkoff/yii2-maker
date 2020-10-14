@@ -1,9 +1,4 @@
 <?php
-/**
- * Created by Artyom Manchenkov
- * artyom@manchenkoff.me
- * manchenkoff.me © 2019
- */
 
 namespace manchenkov\yii\maker\actions;
 
@@ -17,14 +12,16 @@ class ModelAction extends MakeAction
      *
      * @param string $name
      *
-     * @return int|void
+     * @return int
      */
-    public function run(string $name)
+    public function run(string $name): int
     {
         // base namespace
         $namespace = "app\\models";
+
         // get class base name from full path
         $class = stringy(StringHelper::basename($name))->upperCamelize();
+
         // build file path in lower case and append class base name
         $filename = stringy($name)
             ->replace($class, false)
