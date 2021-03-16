@@ -6,8 +6,9 @@ namespace {{namespace}};
 
 use tebazil\yii2seeder\Seeder;
 use yii\base\Action;
+use Exception;
 
-class {{class}} extends Action
+final class {{class}} extends Action
 {
     public function run(Seeder $seeder): void
     {
@@ -16,17 +17,19 @@ class {{class}} extends Action
         $faker = $generator->getFakerConfigurator();
         
         // describe filling process of tables
-        $seeder->table('REPLACE_THIS_TABLE_NAME')
+        $seeder
+            ->table('REPLACE_THIS_TABLE_NAME')
             ->columns([
                 'id',
                 'first_name' => $faker->firstName,
                 'last_name' => $faker->lastName,
-            ])->rowQuantity(10);
+            ])
+            ->rowQuantity(10);
             
         // save data
         try {
             $seeder->refill();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             alert($e->getMessage());
         }
     }

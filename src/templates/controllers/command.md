@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace {{namespace}};
 
-use manchenkov\yii\console\Command;
+use manchenkov\yii\console\command\Command;
 
-class {{class}} extends Command
+final class {{class}} extends Command
 {
     //
 }

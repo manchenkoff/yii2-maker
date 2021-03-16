@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace {{namespace}};
 
-use manchenkov\yii\console\Worker;
+use manchenkov\yii\console\worker\Worker;
 
-class {{class}} extends Worker
+final class {{class}} extends Worker
 {
     protected function handle(): void
     {

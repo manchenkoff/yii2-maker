@@ -6,7 +6,7 @@ namespace {{namespace}};
 
 use yii\base\Behavior;
 
-class {{class}} extends Behavior
+final class {{class}} extends Behavior
 {
     public function events(): array
     {

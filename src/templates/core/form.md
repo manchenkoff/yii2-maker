@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace {{namespace}};
 
-use yii\base\Model;
+use manchenkov\yii\data\Form;
 
-class {{class}} extends Model
+final class {{class}} extends Form
 {
     /**
      * Form validation rules
