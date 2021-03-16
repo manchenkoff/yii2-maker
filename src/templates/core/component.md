@@ -7,7 +7,7 @@ namespace {{namespace}};
 use yii\base\BootstrapInterface;
 use yii\base\Component;
 
-class {{class}} extends Component implements BootstrapInterface
+final class {{class}} extends Component implements BootstrapInterface
 {
     public function bootstrap($app): void
     {
@@ -17,6 +17,7 @@ class {{class}} extends Component implements BootstrapInterface
     public function init(): void
     {
         parent::init();
+
         // code ...
     }
 }

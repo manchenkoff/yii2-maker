@@ -3,7 +3,7 @@
 namespace manchenkov\yii\maker\commands;
 
 use Exception;
-use manchenkov\yii\console\Command;
+use manchenkov\yii\console\command\Command;
 use yii\base\Action;
 use yii\base\InvalidConfigException;
 use yii\console\ExitCode;
@@ -15,12 +15,12 @@ use yii\console\ExitCode;
 abstract class MakeAction extends Action
 {
     /**
-     * Parent controller
      * @var MakeController|Command
      */
     public $controller;
 
     /**
+     * {@inheritdoc}
      * @throws InvalidConfigException
      */
     public function init()
@@ -37,7 +37,7 @@ abstract class MakeAction extends Action
      *
      * @param string $message
      */
-    public function error(string $message)
+    public function error(string $message): void
     {
         $this->controller->error($message);
     }
@@ -47,7 +47,7 @@ abstract class MakeAction extends Action
      *
      * @param string $message
      */
-    public function info(string $message)
+    public function info(string $message): void
     {
         $this->controller->info($message);
     }
@@ -69,6 +69,8 @@ abstract class MakeAction extends Action
             $this->controller->process();
         } catch (Exception $exception) {
             $this->controller->error($exception->getMessage());
+
+            return ExitCode::UNSPECIFIED_ERROR;
         }
 
         return ExitCode::OK;

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace {{namespace}};
 
-use manchenkov\yii\http\Controller;
+use yii\web\Controller;
 
-class {{class}} extends Controller
+final class {{class}} extends Controller
 {
     public function actionIndex()
     {

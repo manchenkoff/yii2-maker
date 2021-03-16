@@ -6,7 +6,7 @@ namespace {{namespace}};
 
 use manchenkov\yii\database\ActiveRecord;
 
-class {{class}} extends ActiveRecord
+final class {{class}} extends ActiveRecord
 {
     /**
      * Data validation rules

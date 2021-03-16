@@ -2,7 +2,7 @@
 
 namespace manchenkov\yii\maker\commands;
 
-use manchenkov\yii\console\Command;
+use manchenkov\yii\console\command\Command;
 use manchenkov\yii\maker\actions\ApiAction;
 use manchenkov\yii\maker\actions\BehaviorAction;
 use manchenkov\yii\maker\actions\CommandAction;
@@ -11,7 +11,6 @@ use manchenkov\yii\maker\actions\ControllerAction;
 use manchenkov\yii\maker\actions\FilterAction;
 use manchenkov\yii\maker\actions\FormAction;
 use manchenkov\yii\maker\actions\JobAction;
-use manchenkov\yii\maker\actions\MailAction;
 use manchenkov\yii\maker\actions\MigrationAction;
 use manchenkov\yii\maker\actions\ModelAction;
 use manchenkov\yii\maker\actions\ModuleAction;
@@ -21,6 +20,7 @@ use manchenkov\yii\maker\actions\SeedAction;
 use manchenkov\yii\maker\actions\ServiceAction;
 use manchenkov\yii\maker\actions\ViewAction;
 use manchenkov\yii\maker\actions\WorkerAction;
+use Yii;
 use yii\base\Exception;
 use yii\base\InvalidRouteException;
 use yii\helpers\FileHelper;
@@ -57,7 +57,7 @@ class MakeController extends Command
     public function init()
     {
         if (!$this->baseDir) {
-            $this->baseDir = alias('@app');
+            $this->baseDir = Yii::getAlias('@app');
         }
 
         if (!$this->templatesDir) {
@@ -84,7 +84,7 @@ class MakeController extends Command
      * Generates new files
      * @throws Exception
      */
-    public function process()
+    public function process(): void
     {
         foreach ($this->filesMap as $source => $destination) {
             // build absolute file paths

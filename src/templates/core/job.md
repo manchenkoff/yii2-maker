@@ -9,14 +9,16 @@ use yii\queue\JobInterface;
 use yii\queue\Queue;
 use yii\queue\RetryableJobInterface;
 
-class {{class}} extends BaseObject implements JobInterface, RetryableJobInterface
+final class {{class}} extends BaseObject implements JobInterface, RetryableJobInterface
 {
+    private const TTR_IN_SECONDS = 3000; // 5 minutes
+
     /**
      * @param Queue $queue which pushed and is handling the job
      */
     public function execute($queue): void
     {
-        // Your code
+        // code ...
     }
 
     /**
@@ -24,8 +26,7 @@ class {{class}} extends BaseObject implements JobInterface, RetryableJobInterfac
      */
     public function getTtr(): int
     {
-        // 5 minutes
-        return 60 * 5;
+        return self::TTR_IN_SECONDS;
     }
 
     /**
@@ -36,7 +37,8 @@ class {{class}} extends BaseObject implements JobInterface, RetryableJobInterfac
      */
     public function canRetry($attempt, $error): bool
     {
-        // Your code
+        // code ...
+
         return true;
     }
 }
