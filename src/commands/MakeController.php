@@ -28,18 +28,6 @@ use yii\helpers\FileHelper;
 class MakeController extends Command
 {
     /**
-     * Directory to write files
-     * @var string
-     */
-    public string $baseDir;
-
-    /**
-     * Directory with templates files
-     * @var string
-     */
-    public string $templatesDir;
-
-    /**
      * Key-value pairs to replace with content
      * @var array
      */
@@ -52,17 +40,24 @@ class MakeController extends Command
     public array $filesMap = [];
 
     /**
+     * Directory to write files
+     * @var string
+     */
+    private string $baseDir;
+
+    /**
+     * Directory with templates files
+     * @var string
+     */
+    private string $templatesDir;
+
+    /**
      * Basic configuration of controller
      */
     public function init()
     {
-        if (!$this->baseDir) {
-            $this->baseDir = Yii::getAlias('@app');
-        }
-
-        if (!$this->templatesDir) {
-            $this->templatesDir = dirname(__DIR__) . "/templates";
-        }
+        $this->baseDir = Yii::getAlias('@app');
+        $this->templatesDir = dirname(__DIR__) . "/templates";
 
         parent::init();
     }
